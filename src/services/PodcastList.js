@@ -37,9 +37,9 @@ const fetchPodcastList = async () => {
 
 export const getPodcastList = async () => {
   try {
-    const storageIsExpired = checkIfExpired(STORAGE_KEY);
+    const storedDataIsExpired = checkIfExpired(STORAGE_KEY);
 
-    if (storageIsExpired) {
+    if (storedDataIsExpired) {
       const list = await fetchPodcastList();
 
       return list;

@@ -3,10 +3,10 @@ import Header from '../components/Header';
 
 const MainLayout = () => {
   return (
-    <>
+    <div className="container px-20">
       <Header />
       <Outlet />
-    </>
+    </div>
   );
 };
 

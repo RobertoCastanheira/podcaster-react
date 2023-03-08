@@ -32,7 +32,7 @@ const Home = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="container flex justify-end items-center my-6">
+      <div className="flex justify-end items-center my-6 w-full">
         <div
           className={`${
             !!list.length ? 'bg-blue-900' : 'bg-red-900'
@@ -50,7 +50,7 @@ const Home = () => {
           />
         </div>
       </div>
-      <div className="container flex flex-wrap justify-center gap-5">
+      <div className="flex flex-wrap justify-center gap-5">
         {filteredList.map(({ id, name, image, author }) => (
           <Thumbnail
             id={id}

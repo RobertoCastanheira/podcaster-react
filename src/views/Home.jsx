@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { LoadingContext } from '../context/Loading';
 import Thumbnail from '../components/Thumbnail';
 import { getPodcastList } from '../services/PodcastList';
 
@@ -6,12 +7,17 @@ const Home = () => {
   const [list, setList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
   const [search, setSearch] = useState('');
+  const { setIsLoading } = useContext(LoadingContext);
 
   useEffect(() => {
     const getList = async () => {
+      setIsLoading(true);
+
       const podcastList = await getPodcastList();
+
       setList(podcastList);
       setFilteredList(podcastList);
+      setIsLoading(false);
     };
 
     getList();

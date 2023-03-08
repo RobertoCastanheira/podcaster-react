@@ -1,20 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { LoadingContext } from '../context/Loading';
 import { getPodcastDetails } from '../services/PodcastDetails';
 
 const EpisodeDetails = () => {
   const [details, setDetails] = useState({});
   const { podcastId, episodeId } = useParams();
+  const { setIsLoading } = useContext(LoadingContext);
 
   useEffect(() => {
     const getDetails = async () => {
+      setIsLoading(true);
+
       const podcastDetails = await getPodcastDetails(podcastId);
       const episodeDetails = podcastDetails?.episodeList.filter(
         (episode) => episode.id.toString() === episodeId
       );
 
       setDetails(episodeDetails[0]);
+      setIsLoading(false);
     };
 
     getDetails();

@@ -21,6 +21,8 @@ const PodcastDetails = () => {
     getDetails();
   }, []);
 
+  if (!details?.id) return <></>;
+
   return (
     <div className="flex-1">
       <div className="shadow-sm shadow-gray-500 py-3 flex items-center px-4">

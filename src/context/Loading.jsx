@@ -3,7 +3,7 @@ import { createContext, useState } from 'react';
 export const LoadingContext = createContext();
 
 const LoadingProvider = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const value = {
     isLoading,

@@ -17,6 +17,8 @@ const Sidebar = () => {
     getDetails();
   }, []);
 
+  if (!details?.id) return <></>;
+
   return (
     <aside className="w-[25vw] shadow-sm rounded-sm shadow-gray-500 flex flex-col items-center p-5">
       <Link to={`/podcast/${podcastId}/`}>

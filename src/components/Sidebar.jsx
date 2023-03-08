@@ -36,7 +36,10 @@ const Sidebar = () => {
       </div>
       <div className="pt-4">
         <p className="font-bold text-md mb-2">Description:</p>
-        <p className="text-sm text-gray-600 italic">{details?.description}</p>
+        <p
+          className="text-sm text-gray-600 italic"
+          dangerouslySetInnerHTML={{ __html: details?.description }}
+        />
       </div>
     </aside>
   );

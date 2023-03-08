@@ -3,7 +3,7 @@ import Sidebar from '../components/Sidebar';
 
 const DetailsLayout = () => {
   return (
-    <div className="flex gap-5">
+    <div className="flex gap-5 items-start">
       <Sidebar />
       <Outlet />
     </div>

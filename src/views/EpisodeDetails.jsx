@@ -26,8 +26,11 @@ const EpisodeDetails = () => {
 
   return (
     <div className="flex-1 shadow-sm shadow-gray-500 p-4">
-      <h1 className="font-bold text-lg">{details?.title}</h1>
+      <h1 id="episode-title" className="font-bold text-lg">
+        {details?.title}
+      </h1>
       <p
+        id="episode-description"
         className="italic text-gray-600 text-sm mt-4"
         dangerouslySetInnerHTML={{ __html: details?.description }}
       />

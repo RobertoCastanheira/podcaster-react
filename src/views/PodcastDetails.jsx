@@ -25,11 +25,16 @@ const PodcastDetails = () => {
 
   return (
     <div className="flex-1">
-      <div className="shadow-sm shadow-gray-500 py-3 flex items-center px-4">
-        <p className="font-bold">Episodes: {details?.episodesCount}</p>
+      <div
+        id="podcast-header"
+        className="shadow-sm shadow-gray-500 py-3 flex items-center px-4"
+      >
+        <p className="font-bold">
+          Episodes: <span id="episode-count">{details?.episodesCount}</span>
+        </p>
       </div>
       <div className="mt-4 p-4 shadow-sm shadow-gray-500">
-        <table>
+        <table id="episode-table">
           <thead className="border-b-2">
             <tr>
               <td className="font-bold">Title</td>
@@ -42,8 +47,11 @@ const PodcastDetails = () => {
               ? details?.episodeList.map((episode) => (
                   <tr className="border-t-2" key={episode.id}>
                     <td className="text-sm text-blue-600 py-2 pr-2">
-                      <Link to={`/podcast/${podcastId}/episode/${episode.id}`}>
-                        <span>{episode.title}</span>
+                      <Link
+                        id="episode-title"
+                        to={`/podcast/${podcastId}/episode/${episode.id}`}
+                      >
+                        {episode.title}
                       </Link>
                     </td>
                     <td className="text-sm text-center text-gray-600">

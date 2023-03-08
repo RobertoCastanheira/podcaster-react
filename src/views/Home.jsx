@@ -28,8 +28,10 @@ const Home = () => {
 
     setFilteredList(
       list.filter((podcast) => {
-        if (podcast.name.toLowerCase().includes(filter)) return podcast;
-        if (podcast.author.toLowerCase().includes(filter)) return podcast;
+        if (podcast.name.toLowerCase().includes(filter.toLowerCase()))
+          return podcast;
+        if (podcast.author.toLowerCase().includes(filter.toLowerCase()))
+          return podcast;
       })
     );
 
@@ -40,14 +42,16 @@ const Home = () => {
     <div className="flex flex-col items-center">
       <div className="flex justify-end items-center my-6 w-full">
         <div
+          id="podcast-count"
           className={`${
-            !!list.length ? 'bg-blue-900' : 'bg-red-900'
+            !!filteredList.length ? 'bg-blue-900' : 'bg-red-900'
           } p-2 rounded-md text-white mr-6`}
         >
-          {list.length}
+          {filteredList.length}
         </div>
         <div>
           <input
+            id="search"
             type="text"
             placeholder="Filter podcasts..."
             className="border-2 rounded-md p-2 outline-none"
@@ -56,7 +60,10 @@ const Home = () => {
           />
         </div>
       </div>
-      <div className="flex flex-wrap justify-center gap-5">
+      <div
+        id="podcast-container"
+        className="flex flex-wrap justify-center gap-5"
+      >
         {filteredList.map(({ id, name, image, author }) => (
           <Thumbnail
             id={id}

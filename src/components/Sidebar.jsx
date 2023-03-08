@@ -20,8 +20,11 @@ const Sidebar = () => {
   if (!details?.id) return <></>;
 
   return (
-    <aside className="w-[25vw] shadow-sm rounded-sm shadow-gray-500 flex flex-col items-center p-5">
-      <Link to={`/podcast/${podcastId}/`}>
+    <aside
+      id="sidebar"
+      className="w-[25vw] shadow-sm rounded-sm shadow-gray-500 flex flex-col items-center p-5"
+    >
+      <Link to={`/podcast/${podcastId}`}>
         <img
           src={details?.image}
           alt={details?.name}
@@ -29,11 +32,14 @@ const Sidebar = () => {
         />
       </Link>
       <div className="border-y-2  border-gray-200 py-4">
-        <Link to={`/podcast/${podcastId}/`}>
+        <Link id="sidebar-podcast-name" to={`/podcast/${podcastId}`}>
           <p className="font-bold">{details?.title}</p>
         </Link>
         <p className="text-md text-gray-600 italic">
-          by <Link to={`/podcast/${podcastId}/`}>{details?.author}</Link>
+          by{' '}
+          <Link id="sidebar-podcast-author" to={`/podcast/${podcastId}`}>
+            {details?.author}
+          </Link>
         </p>
       </div>
       <div className="pt-4">

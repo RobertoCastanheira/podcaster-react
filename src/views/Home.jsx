@@ -15,8 +15,8 @@ const Home = () => {
 
       const podcastList = await getPodcastList();
 
-      setList(podcastList);
-      setFilteredList(podcastList);
+      setList(podcastList ?? []);
+      setFilteredList(podcastList ?? []);
       setIsLoading(false);
     };
 

@@ -46,7 +46,7 @@ const PodcastDetails = () => {
             {details?.episodeList
               ? details?.episodeList.map((episode) => (
                   <tr className="border-t-2" key={episode.id}>
-                    <td className="text-sm text-blue-600 py-2 pr-2">
+                    <td className="text-sm text-blue-600 py-2 pr-2 w-full">
                       <Link
                         id="episode-title"
                         to={`/podcast/${podcastId}/episode/${episode.id}`}

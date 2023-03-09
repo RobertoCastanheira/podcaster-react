@@ -31,7 +31,7 @@ const Sidebar = () => {
           className="w-[12vw] rounded-md mb-6"
         />
       </Link>
-      <div className="border-y-2  border-gray-200 py-4">
+      <div className="border-y-2  border-gray-200 py-4 w-full">
         <Link id="sidebar-podcast-name" to={`/podcast/${podcastId}`}>
           <p className="font-bold">{details?.title}</p>
         </Link>
